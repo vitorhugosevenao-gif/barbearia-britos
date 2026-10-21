@@ -1,0 +1,9 @@
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--ink); border-bottom: 1px solid #2f3134; }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 900; font-size: 30px; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+.logo img { height: 34px; width: auto; display: block; }
+nav.main { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: flex-end; }
+nav.main a { text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; }
+nav.main a:hover { text-decoration: underline; text-underline-offset: 6px; }
+@media (max-width: 720px) { nav.main a:not(.btn) { display: none; } }

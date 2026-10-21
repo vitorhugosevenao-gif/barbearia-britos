@@ -1,0 +1,8 @@
+/* onde estamos */
+.place { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+.place img { width: 100%; height: auto; display: block; border: 2px solid var(--paper); max-width: 440px; }
+.place h2 { font-size: clamp(42px, 7vw, 80px); font-weight: 900; margin-bottom: 28px; }
+.place dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px 24px; margin: 0 0 28px; }
+.place dt { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ash); padding-top: 5px; }
+.place dd { margin: 0; font-size: 18px; font-weight: 500; overflow-wrap: anywhere; }
+@media (max-width: 820px) { .place { grid-template-columns: minmax(0, 1fr); gap: 32px; } }

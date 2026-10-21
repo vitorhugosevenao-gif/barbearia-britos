@@ -1,0 +1,15 @@
+/* planos */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 2px solid var(--ink); }
+.plan { padding: 32px 28px; display: flex; flex-direction: column; gap: 20px; border-right: 2px solid var(--ink); min-width: 0; }
+.plan:last-child { border-right: 0; }
+.plan.feat { background: var(--ink); color: var(--paper); }
+.plan h3 { font-size: 42px; font-weight: 900; }
+.price { font-family: var(--display); font-weight: 800; font-size: 58px; line-height: 1; }
+.price small { font-family: var(--body); font-size: 13px; font-weight: 600; letter-spacing: .06em; margin-left: 6px; }
+.plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; flex: 1; font-size: 15px; }
+.plan li { padding-left: 24px; position: relative; }
+.plan li::before { content: ""; position: absolute; left: 0; top: .5em; width: 12px; height: 10px; background: currentColor; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.plan.feat .btn.solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.plan.feat .btn.solid:hover { background: transparent; color: var(--paper); }
+.tag { align-self: flex-start; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; background: var(--paper); color: var(--ink); padding: 4px 10px; }
+@media (max-width: 900px) { .plans { grid-template-columns: minmax(0, 1fr); } .plan { border-right: 0; border-bottom: 2px solid var(--ink); } .plan:last-child { border-bottom: 0; } }

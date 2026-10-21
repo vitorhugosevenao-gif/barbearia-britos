@@ -1,0 +1,7 @@
+/* paginas de texto (privacidade, termos, acessibilidade) */
+
+.doc-page .head h1 { font-size: clamp(42px, 7vw, 80px); font-weight: 900; }
+.doc { max-width: 760px; display: grid; gap: 14px; }
+.doc h2 { font-size: clamp(26px, 3.4vw, 34px); font-weight: 800; margin-top: 28px; }
+.doc ul { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+.doc a { text-underline-offset: 3px; }

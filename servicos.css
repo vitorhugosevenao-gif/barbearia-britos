@@ -1,0 +1,7 @@
+/* servicos */
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; }
+.srv { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 22px 0; border-bottom: 1px solid var(--ink); align-items: baseline; }
+.srv h3 { font-size: 32px; font-weight: 800; }
+.srv .p { font-family: var(--display); font-size: 32px; font-weight: 800; white-space: nowrap; }
+.srv p { grid-column: 1 / -1; font-size: 14px; }
+@media (max-width: 760px) { .services { grid-template-columns: minmax(0, 1fr); } }

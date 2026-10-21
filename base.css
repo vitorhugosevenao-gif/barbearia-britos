@@ -1,0 +1,43 @@
+/* Base: variáveis (cores/fontes), reset, tipografia, faixas de cor e divisor de triângulos */
+/* Layout: faixas em cinza grafite e branco como a fachada. Wordmark condensado BRITOS, "BARBEARIA" largo entre linhas, emblema do barbudo no triangulo invertido. */
+:root {
+  --ink: #0c0d0e;
+  --slate: #26282b;
+  --ash: #a3a7ab;
+  --mist: #cfd2d4;
+  --paper: #f2f3f3;
+  --mute-paper: #55595e;
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: var(--body); font-size: 16px; line-height: 1.6; margin: 0; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3 { font-family: var(--display); text-transform: uppercase; line-height: .95; margin: 0; text-wrap: balance; letter-spacing: .01em; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: clamp(56px, 9vw, 104px); }
+.dark { background: var(--ink); color: var(--paper); }
+.slate { background: var(--slate); color: var(--paper); }
+.light { background: var(--paper); color: var(--ink); }
+.mist { background: var(--mist); color: var(--ink); }
+.dark .mute, .slate .mute { color: var(--ash); }
+.light .mute, .mist .mute { color: var(--mute-paper); }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+
+/* divisor de triangulos invertidos, como no emblema */
+.tri { height: 18px; background-repeat: repeat-x; background-position: center; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='18' viewBox='0 0 28 18'%3E%3Cpath d='M5 3h18l-9 12z' fill='none' stroke='%23f2f3f3' stroke-width='1.6'/%3E%3C/svg%3E"); }
+.tri.on-light { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='18' viewBox='0 0 28 18'%3E%3Cpath d='M5 3h18l-9 12z' fill='none' stroke='%230c0d0e' stroke-width='1.6'/%3E%3C/svg%3E"); background-color: var(--paper); }
+.tri.on-dark { background-color: var(--ink); }
+
+.notice { background: var(--paper); color: var(--ink); font-size: 12px; font-weight: 600; padding-block: 8px; }
+
+/* cabeçalho de seção (eyebrow + título + texto), usado em todas as páginas */
+.head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 760px; }
+.head h2 { font-size: clamp(42px, 7vw, 80px); font-weight: 900; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

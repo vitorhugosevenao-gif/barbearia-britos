@@ -1,0 +1,69 @@
+/* ========================================= */
+/* Secao de Parceiros (carrossel em movimento) */
+/* ========================================= */
+
+.marquee {
+  --tile-w: 280px;
+  --gap: 12px;
+  margin-top: 8px;
+  overflow: hidden;
+  /* bordas esquerda e direita somem suavemente */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 36s linear infinite;
+}
+.marquee-group { display: flex; gap: var(--gap); padding-right: var(--gap); flex-shrink: 0; }
+
+/* 3 grupos iguais: andar 1/3 do total = andar exatamente 1 grupo (loop sem emenda) */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.3333%); }
+}
+
+/* pausa ao passar o mouse ou focar com o teclado */
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track { animation-play-state: paused; }
+
+.partner-item { position: relative; flex: 0 0 var(--tile-w); width: var(--tile-w); margin: 0; overflow: hidden; aspect-ratio: 4 / 3; background: var(--paper); cursor: pointer; outline: none; }
+
+/* o logo fica contido, com respiro, sem cortar */
+.partner-item img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 12%; box-sizing: border-box; filter: grayscale(1) opacity(.7); transition: transform .6s ease, filter .6s ease; }
+
+/* moldura interna que "fecha" ao passar o mouse */
+.partner-item::before { content: ""; position: absolute; inset: 12px; border: 2px solid var(--ink); z-index: 2; pointer-events: none; opacity: 0; transform: scale(1.08); transition: opacity .35s ease, transform .35s ease; }
+
+/* legenda sobre degrade escuro */
+.partner-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: baseline; gap: 10px; padding: 36px 16px 14px; background: linear-gradient(to top, rgba(12, 13, 14, .92), rgba(12, 13, 14, 0)); font-family: var(--display); font-weight: 800; font-size: 20px; line-height: 1; text-transform: uppercase; letter-spacing: .04em; color: var(--paper); transform: translateY(100%); opacity: 0; transition: transform .4s ease, opacity .4s ease; }
+.partner-item figcaption .num { font-size: .6em; letter-spacing: .12em; color: var(--ash); }
+
+.partner-item:hover img, .partner-item:focus-visible img { transform: scale(1.1); filter: grayscale(0) opacity(1); }
+.partner-item:hover::before, .partner-item:focus-visible::before { opacity: 1; transform: scale(1); }
+.partner-item:hover figcaption, .partner-item:focus-visible figcaption { transform: translateY(0); opacity: 1; }
+.partner-item:focus-visible { box-shadow: 0 0 0 3px var(--slate), 0 0 0 6px var(--paper); }
+
+/* celular: cartoes menores, mais rapido, legenda sempre visivel (sem hover no toque) */
+@media (max-width: 760px) {
+  .marquee { --tile-w: 200px; --gap: 8px; }
+  .marquee-track { animation-duration: 28s; }
+}
+@media (hover: none) {
+  .partner-item figcaption { transform: none; opacity: 1; font-size: 15px; padding: 28px 10px 8px; }
+  .partner-item img { filter: none; }
+}
+
+/* "reduzir movimento": sem animacao; o usuario rola com o dedo/mouse */
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { animation: none; }
+  .marquee-group[aria-hidden="true"] { display: none; }
+  .partner-item img, .partner-item::before, .partner-item figcaption { transition: none; }
+}
+
+/* logo claro (ex.: Pepsi, letras brancas): cartão escuro para o logo aparecer */
+.partner-item.is-dark { background: var(--ink); }
+.partner-item.is-dark::before { border-color: var(--paper); }

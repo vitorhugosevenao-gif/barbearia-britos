@@ -1,0 +1,7 @@
+/* produtos */
+.products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.prod { border: 2px solid var(--ink); padding: 24px; display: grid; gap: 8px; min-width: 0; align-content: start; }
+.prod .stage3 { border-bottom: 1px solid var(--ink); margin-bottom: 8px; }
+.prod h3 { font-size: 32px; font-weight: 800; }
+.prod .p { font-size: 14px; font-weight: 700; letter-spacing: .06em; }
+@media (max-width: 760px) { .products { grid-template-columns: minmax(0, 1fr); } }

@@ -1,0 +1,11 @@
+/* footer */
+footer { background: var(--ink); color: var(--paper); }
+footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1.4fr; gap: 40px; padding-block: 56px 32px; }
+footer .logo-big { width: 150px; max-width: 100%; height: auto; display: block; }
+footer h4 { font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; margin: 0 0 14px; color: var(--ash); }
+footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 15px; }
+footer a { text-decoration: none; }
+footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.legal { border-top: 1px solid #2f3134; padding-block: 20px max(20px, env(safe-area-inset-bottom, 0px)); font-size: 13px; color: var(--ash); }
+@media (max-width: 860px) { footer .cols { grid-template-columns: minmax(0, 1fr); } }
+.legal a { text-underline-offset: 3px; }
